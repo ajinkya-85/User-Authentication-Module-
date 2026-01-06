@@ -1,16 +1,83 @@
-# user_auth_module
+# User Auth Module
 
-A new Flutter project.
+A robust User Authentication and Profile Management module built using Flutter and Firebase. This project demonstrates a secure and scalable approach to handling user sessions, registration, and real-time data persistence.
 
-## Getting Started
+## 🛠 Tech Stack
 
-This project is a starting point for a Flutter application.
+- **Programming Language:** Dart
+- **Framework:** Flutter
+- **Database:** Cloud Firestore (NoSQL)
+- **Authentication:** Firebase Authentication
+- **Platform Support:** Android, iOS, Web, Windows, macOS, Linux
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **User Registration:** Secure sign-up flow capturing Username, Email, Mobile Number, and Address.
+- **Authentication:** Email and Password login with input validation.
+- **Profile Management:** View and update user details stored in Cloud Firestore.
+- **Security:**
+  - Secure password change functionality.
+  - Email verification triggers on email updates.
+- **UI/UX:**
+  - Custom reusable widgets for consistent design.
+  - Responsive layout handling.
+  - Error handling via SnackBars.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🌳 Widget Tree Overview
+
+The application follows a clean and modular widget hierarchy. Below is a high-level representation of the application structure:
+
+```text
+MyApp
+ └── MaterialApp
+      ├── Routes
+      │    ├── '/signin': SignIn Screen
+      │    ├── '/signup': SignUp Screen
+      │    └── '/home': Home Screen
+      │
+      └── SignIn (Initial Route)
+           └── Scaffold
+                └── SafeArea
+                     └── Padding
+                          └── SingleChildScrollView
+                               └── Column
+                                    ├── Text (Header)
+                                    ├── ReusableTextField (Email)
+                                    ├── ReusableTextField (Password)
+                                    ├── ReusableButton (Sign In)
+                                    └── Row (Navigation to Sign Up)
+```
+
+## 📂 Project Structure
+
+```text
+lib/
+├── main.dart                 # Application entry point and Firebase initialization
+├── firebase_options.dart     # Firebase configuration
+├── reusable_widgets/
+│   ├── buttons.dart          # Custom styled ElevatedButton
+│   └── textfield.dart        # Custom styled TextField with icons
+└── screens/
+    ├── home.dart             # User Profile & Dashboard
+    ├── sign_in.dart          # Login Screen
+    └── sign_up.dart          # Registration Screen
+```
+
+## 🔧 Getting Started
+
+1.  **Clone the repository**
+
+    ```bash
+    git clone <repository-url>
+    ```
+
+2.  **Install Dependencies**
+
+    ```bash
+    flutter pub get
+    ```
+
+3.  **Run the App**
+    ```bash
+    flutter run
+    ```
