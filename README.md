@@ -8,7 +8,6 @@ A robust User Authentication and Profile Management module built using Flutter a
 - **Framework:** Flutter
 - **Database:** Cloud Firestore (NoSQL)
 - **Authentication:** Firebase Authentication
-- **Platform Support:** Android, iOS, Web, Windows, macOS, Linux
 
 ## 🚀 Features
 
@@ -62,22 +61,3 @@ lib/
     ├── sign_in.dart          # Login Screen
     └── sign_up.dart          # Registration Screen
 ```
-
-## 🔧 Getting Started
-
-1.  **Clone the repository**
-
-    ```bash
-    git clone <repository-url>
-    ```
-
-2.  **Install Dependencies**
-
-    ```bash
-    flutter pub get
-    ```
-
-3.  **Run the App**
-    ```bash
-    flutter run
-    ```
