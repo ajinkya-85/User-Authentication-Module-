@@ -25,24 +25,24 @@ class _SignInState extends State<SignIn> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Sign In Screen',
+                'Sign In',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 80),
+              const SizedBox(height: 80),
               reusableTextField(
                 "Enter Email",
                 Icons.mail_outline,
                 false,
                 _emailTextController,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               reusableTextField(
                 "Enter Password",
                 Icons.lock_outline,
                 true,
                 _passwordTextController,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               buttonsReuable("Sign In", context, () async {
                 if (!RegExp(
                   r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
@@ -74,7 +74,6 @@ class _SignInState extends State<SignIn> {
                   Map<String, dynamic>? userData =
                       userDoc.data() as Map<String, dynamic>?;
 
-                  print("Logged In");
                   if (context.mounted) {
                     Navigator.pushNamed(
                       context,
@@ -82,7 +81,6 @@ class _SignInState extends State<SignIn> {
                       arguments: {
                         'username': userData?['username'] ?? '',
                         'email': _emailTextController.text,
-                        'password': _passwordTextController.text,
                         'mobile': userData?['mobile'] ?? '',
                         'address': userData?['address'] ?? '',
                       },
@@ -110,7 +108,7 @@ class _SignInState extends State<SignIn> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Don't have an account?"),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, '/signup');

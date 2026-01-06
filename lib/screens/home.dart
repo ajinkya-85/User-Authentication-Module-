@@ -25,21 +25,17 @@ class _HomeState extends State<Home> {
           .collection('users')
           .doc(uid)
           .get();
-      print('Fetched doc exists: ${doc.exists}');
       if (doc.exists) {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-        print('Fetched data: $data');
         setState(() {
           _usernameController.text = data['username'] ?? '';
           _emailController.text = data['email'] ?? '';
           _mobileController.text = data['mobile'] ?? '';
           _addressController.text = data['address'] ?? '';
         });
-      } else {
-        print('Document does not exist for UID: $uid');
       }
     } catch (e) {
-      print('Error fetching user data: $e');
+      // Handle error silently or log
     }
   }
 
@@ -155,7 +151,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home Screen')),
+      appBar: AppBar(title: Text('User Profile')),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -169,47 +165,46 @@ class _HomeState extends State<Home> {
                     false,
                     _usernameController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   reusableTextField(
                     "Email",
                     Icons.mail_outline,
                     false,
                     _emailController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   reusableTextField(
                     "Mobile Number",
                     Icons.phone,
                     false,
                     _mobileController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   reusableTextField(
                     "Address",
                     Icons.home,
                     false,
                     _addressController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   reusableTextField(
                     "New Password",
                     Icons.lock_outline,
                     true,
                     _passwordController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   reusableTextField(
                     "Confirm New Password",
                     Icons.lock_outline,
                     true,
                     _confirmPasswordController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   buttonsReuable("Update Profile", context, _updateProfile),
                   buttonsReuable("Change Password", context, _changePassword),
                   buttonsReuable("Log Out", context, () async {
                     await FirebaseAuth.instance.signOut();
-                    print("Signed Out");
                     if (context.mounted) {
                       Navigator.pushNamedAndRemoveUntil(
                         context,

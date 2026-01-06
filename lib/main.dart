@@ -12,9 +12,7 @@ void main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
   } catch (e) {
-    print(
-      "Firebase initialization error (can be ignored if duplicate-app): $e",
-    );
+    // Firebase initialization error (can be ignored if duplicate-app)
   }
   runApp(const MyApp());
 }

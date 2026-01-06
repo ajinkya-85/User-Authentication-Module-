@@ -64,7 +64,6 @@ class _SignUpState extends State<SignUp> {
 
       try {
         String uid = userCredential.user!.uid;
-        print("User UID: $uid");
         await FirebaseFirestore.instance.collection('users').doc(uid).set({
           'username': _usernameTextController.text,
           'email': _emailTextController.text,
@@ -72,11 +71,7 @@ class _SignUpState extends State<SignUp> {
           'address': _addressTextController.text,
           'uid': uid,
         });
-        print(
-          "User data saved to Firestore: username=${_usernameTextController.text}, address=${_addressTextController.text}",
-        );
       } catch (firestoreError) {
-        print("Firestore error: $firestoreError");
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -84,29 +79,25 @@ class _SignUpState extends State<SignUp> {
             ),
           );
         }
-        // Still navigate, but inform user
       }
 
       if (context.mounted) {
-        print("Created New Account");
         Navigator.pushReplacementNamed(
           context,
           '/home',
           arguments: {
             'username': _usernameTextController.text,
             'email': _emailTextController.text,
-            'password': _passwordTextController.text,
             'mobile': _mobileTextController.text,
             'address': _addressTextController.text,
           },
         );
       }
     } catch (error) {
-      print("Error ${error.toString()}");
       if (context.mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text("Error: ${error.toString()}")));
+        ).showSnackBar(SnackBar(content: Text("Error: $error")));
       }
     }
   }
@@ -115,7 +106,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: Text('Sign Up / Register'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -137,42 +128,42 @@ class _SignUpState extends State<SignUp> {
                     false,
                     _usernameTextController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   reusableTextField(
                     "Enter Email ID",
                     Icons.mail_outline,
                     false,
                     _emailTextController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   reusableTextField(
                     "Enter Mobile Number",
                     Icons.phone,
                     false,
                     _mobileTextController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   reusableTextField(
                     "Enter Address",
                     Icons.home,
                     false,
                     _addressTextController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   reusableTextField(
                     "Enter Password",
                     Icons.lock_outline,
                     true,
                     _passwordTextController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   reusableTextField(
                     "Confirm Password",
                     Icons.lock_outline,
                     true,
                     _confirmPasswordTextController,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   buttonsReuable("Sign Up", context, () {
                     _signUp();
                   }),
