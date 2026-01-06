@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "797827443462",
+    "project_id": "user-auth-using-flutter",
+    "storage_bucket": "user-auth-using-flutter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797827443462:android:467fba0d0f8337fe564c87",
+        "android_client_info": {
+          "package_name": "io.ajinkyaghode.com.user_auth_module"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDT51g7C6GMjjrozmkdWM5vQISgvktLlGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
