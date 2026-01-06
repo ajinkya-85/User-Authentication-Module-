@@ -89,22 +89,3 @@ lib/
     ├── sign_in.dart          # Login Screen
     └── sign_up.dart          # Registration Screen
 ```
-
-## 🔧 Getting Started
-
-1.  **Clone the repository**
-
-    ```bash
-    git clone <repository-url>
-    ```
-
-2.  **Install Dependencies**
-
-    ```bash
-    flutter pub get
-    ```
-
-3.  **Run the App**
-    ```bash
-    flutter run
-    ```
